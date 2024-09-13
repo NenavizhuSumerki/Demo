@@ -1,0 +1,66 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Demo.Window1"
+		x:CompileBindings="False"
+        Title="Window1">
+	<Grid RowDefinitions="Auto, 5*, *">
+		<Grid ColumnDefinitions="Auto, *, *">
+		<StackPanel Orientation="Horizontal">
+			<TextBox Margin="5" Grid.Column="0" Height="20" Width="400" KeyUp="KeyUp_Poisk" HorizontalAlignment="Left" Background="Gray" Opacity="0.7"  x:Name="ProductSearchTextBox" Foreground="Black" Watermark="Поиск"/>
+			<ComboBox Margin="5" Grid.Column="1" Height="20" Width="150" VerticalAlignment="Center" SelectionChanged="ComboBox_Discount" Background="Gray" Opacity="0.7" PlaceholderText="Скидка" Foreground="White" Name="ComboDiscount" />
+			<ComboBox Margin="5" Grid.Column="2" Height="20" Width="200" VerticalAlignment="Center" SelectionChanged="ComboBox_Cena" Background="Gray" Opacity="0.7" PlaceholderText="Сортировка по цене" Foreground="White" Name="ComboPrice" />
+		</StackPanel>
+		</Grid>
+
+		<ListBox Grid.Row="1" Name="Listbox">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Border BorderThickness="1">
+						<Grid ColumnDefinitions="*, 4*, *">
+							<StackPanel Grid.Column="0">
+								<Border BorderBrush="#000000" BorderThickness="1">
+									<Image Name="ImageTovar" Stretch="UniformToFill"   Source="{Binding ImageBitmap}" />
+								</Border>
+								
+							</StackPanel >
+
+							<StackPanel Grid.Column="1" Orientation="Vertical">
+								<StackPanel Orientation="Horizontal" >
+									<TextBlock Name="NameService" Text="{Binding Title}"/>
+									
+								</StackPanel>
+
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Name="Cena" Text="{Binding Cost}"/>
+									<TextBlock Text=" рублей за "/>
+									<TextBlock Name="Minut" Text="{Binding Durationinseconds}"/>
+									<TextBlock Text=" минут "/>
+								</StackPanel>
+
+								<StackPanel IsVisible="{Binding SkidkaVisible}" Orientation="Horizontal">
+									<TextBlock Text="*скидка "/>
+									<TextBlock Name="skidka" Text="{Binding Discount}"/>
+									<TextBlock Text="%"/>
+								</StackPanel>
+
+								<StackPanel Orientation="Horizontal">
+									<Button Name="Editor" Content="Редактировать"/>
+									<Button Name="Delete" Content="Удалить"/>
+								</StackPanel>
+							</StackPanel>
+						</Grid>
+					</Border>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+		<StackPanel Grid.Row="2">
+			<Button Margin="20" Name="Dobavit" Click="Click_Dobavit" Content="Добавить услугу" />
+		</StackPanel>
+	</Grid>
+
+
+</Window>

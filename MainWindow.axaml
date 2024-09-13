@@ -1,0 +1,16 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Demo.MainWindow"
+        Title="Demo">
+    <Grid ShowGridLines="False" ColumnDefinitions="*, *, *" RowDefinitions="*, *, *">
+		<TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"  Text="Авторизация" />
+	<TextBox KeyUp="TextBox_KeyUp" Grid.Column="1" IsVisible="False" Height="50" Width="200" Grid.Row="1" Name="Vvod_Parol" HorizontalAlignment="Center" />
+		<TextBlock Text="Нажми Enter после ввода :3" Grid.Column="1" Grid.Row="1" IsVisible="False" Margin="85 20" Name="TextEnter" />
+		<Button Click="AdminClick"  Grid.Column="0"  Name="admin_button" Margin="0 0 -60 0" Grid.Row="2" HorizontalAlignment="Right" Content="Администратор"/>
+<Button Click="User_batton" Grid.Column="2" Name="User_button" Margin="-60 0 0 0" Grid.Row="2" HorizontalAlignment="Left" Content="Пользователь"/>
+
+</Grid>
+</Window>
